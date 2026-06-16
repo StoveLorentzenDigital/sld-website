@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stove Lorentzen Digital — Unlock Creative Flow</title>
+  <meta name="description" content="We solve human-technology-human friction in creative endeavors. Technical art expertise applied to digital workflow transformation.">
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --paper: #faf9f6;
+      --accent: #e94560;
+      --accent-soft: #e9456020;
+      --muted: #6b7280;
+      --border: #e5e5e5;
+      --gradient-start: #16213e;
+      --gradient-end: #0f3460;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(233, 69, 96, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(15, 52, 96, 0.3) 0%, transparent 50%);
+    }
+
+    .hero > * { position: relative; z-index: 1; }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero .tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      max-width: 680px;
+      margin: 1rem auto 2.5rem;
+      opacity: 0.9;
+    }
+
+    .hero .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      animation: bob 2s ease-in-out infinite;
+      opacity: 0.6;
+      font-size: 1.5rem;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+    }
+
+    /* ── Sections ── */
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    section h2 + .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Philosophy ── */
+    .philosophy {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .philosophy section { max-width: 760px; }
+
+    .philosophy blockquote {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-style: italic;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      line-height: 1.6;
+    }
+
+    .philosophy p { opacity: 0.88; margin-bottom: 1.2rem; }
+
+    /* ── Pillars ── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .pillar {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: box-shadow 0.25s;
+    }
+
+    .pillar:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .pillar .icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pillar h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ── Team ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    .person {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .person-header {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      padding: 2rem;
+      color: #fff;
+    }
+
+    .person-header h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .person-header .role {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+
+    .person-body {
+      padding: 1.8rem 2rem;
+    }
+
+    .person-body p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .person-body .highlights {
+      list-style: none;
+      padding: 0;
+    }
+
+    .person-body .highlights li {
+      padding: 0.35rem 0;
+      font-size: 0.9rem;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .person-body .highlights li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+
+    .contact-label {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── Track Record ── */
+    .track-record {
+      background: #f5f5f5;
+    }
+
+    .logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      align-items: center;
+    }
+
+    .logos .logo-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.7rem 1.4rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact-section section { max-width: 640px; }
+
+    .contact-section h2 { color: #fff; }
+    .contact-section .subtitle { color: rgba(255,255,255,0.7); }
+
+    .contact-section p {
+      opacity: 0.85;
+      margin-bottom: 2rem;
+    }
+
+    .contact-section a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-section a:hover { text-decoration: underline; }
+
+    .contact-email {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff !important;
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .contact-email:hover {
+      background: var(--accent);
+      text-decoration: none !important;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: var(--paper);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      section { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════ HERO ════ -->
+  <header class="hero">
+    <h1>Stove Lorentzen <span>Digital</span></h1>
+    <p class="tagline">We unlock creative flow by removing the friction between people, technology, and process.</p>
+    <a href="#contact" class="cta-btn">Get in Touch</a>
+    <div class="scroll-hint" aria-hidden="true">&darr;</div>
+  </header>
+
+  <!-- ════ PHILOSOPHY ════ -->
+  <div class="philosophy">
+    <section>
+      <h2>Our Philosophy</h2>
+      <blockquote>"Tools should be as simple as pencils &mdash; anyone can pick them up and begin making their mark."</blockquote>
+      <p>
+        We come from the trenches of video game production &mdash; an industry where art, engineering, and design collide at high speed. As technical artists, we lived at the crossroads: translating creative vision into working pipelines, building tools that let artists focus on art instead of fighting software, and shipping products where every frame matters.
+      </p>
+      <p>
+        That experience taught us something universal: <strong>the biggest bottleneck in creative digital work is never the technology itself &mdash; it's the friction between the humans using it.</strong> Miscommunication between teams, tools that interrupt flow, processes that serve the pipeline instead of the people. We know how to find those friction points and dissolve them.
+      </p>
+      <p>
+        Now we apply that lens beyond games. Whether you're a studio, agency, or product team &mdash; if your people are fighting their tools instead of doing their best work, we can help.
+      </p>
+    </section>
+  </div>
+
+  <!-- ════ WHAT WE DO ════ -->
+  <section>
+    <h2>What We Do</h2>
+    <p class="subtitle">Technical art thinking applied to your digital workflows</p>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="icon" aria-hidden="true">&#9881;</div>
+        <h3>Pipeline &amp; Workflow Design</h3>
+        <p>We audit and redesign your creative pipelines &mdash; from asset creation to delivery &mdash; eliminating handoff friction so work flows instead of stalls.</p>
+      </div>
+      <div class="pillar">
+        <div class="icon" aria-hidden="true">&#9998;</div>
+        <h3>Custom Tool Development</h3>
+        <p>Purpose-built tools and scripts that fit your team's actual workflow. No more adapting your process to off-the-shelf software limitations.</p>
+      </div>
+      <div class="pillar">
+        <div class="icon" aria-hidden="true">&#8644;</div>
+        <h3>Human-Tech Bridge Consulting</h3>
+        <p>We sit between your artists, designers, and engineers to identify where communication breaks down and technology gets in the way &mdash; then fix it.</p>
+      </div>
+      <div class="pillar">
+        <div class="icon" aria-hidden="true">&#9889;</div>
+        <h3>Procedural &amp; Automation Systems</h3>
+        <p>From procedural content generation to build automation, we design systems that multiply your team's output without multiplying headcount.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ TEAM ════ -->
+  <section id="team">
+    <h2>The Team</h2>
+    <p class="subtitle">Two decades of combined experience shipping creative digital products</p>
+    <div class="team-grid">
+
+      <!-- Danielle -->
+      <div class="person">
+        <div class="person-header">
+          <h3>Danielle Stove Lorentzen</h3>
+          <div class="role">Founder &amp; Lead Consultant</div>
+        </div>
+        <div class="person-body">
+          <p>
+            A procedural technical artist whose work has touched every part of the production process &mdash; and seemed to speed things up without sacrifice. Danielle's rare ability is making complex pipelines feel effortless for the people who use them.
+          </p>
+          <ul class="highlights">
+            <li>Procedural Technical Artist at Double Fine Productions</li>
+            <li>Senior Technical Artist at Amazon Robotics</li>
+            <li>Senior Technical Artist at Wizards of the Coast</li>
+            <li>Technical Artist at Turn 10 Studios (Forza)</li>
+            <li>BFA Game Development &mdash; Academy of Art University, San Francisco</li>
+            <li>Indie game developer and creative technologist</li>
+          </ul>
+          <span class="contact-label">Primary Contact</span>
+        </div>
+      </div>
+
+      <!-- Jacob -->
+      <div class="person">
+        <div class="person-header">
+          <h3>Jacob Stove Lorentzen</h3>
+          <div class="role">Partner &amp; Board Member</div>
+        </div>
+        <div class="person-body">
+          <p>
+            A senior technical artist and studio co-founder who has shipped games from concept to storefront. Jacob's philosophy: reduce friction so artists and designers can unleash their full potential.
+          </p>
+          <ul class="highlights">
+            <li>Senior Technical Artist at Hypixel Studios</li>
+            <li>Technical Artist at Unity Software &mdash; Gaming Services</li>
+            <li>Co-founder of Arachnid Games &mdash; shipped Ballpoint Universe &amp; Diluvion</li>
+            <li>Pipeline architecture, tool development, rigging, game AI</li>
+            <li>BFA Game Design &mdash; Academy of Art University, San Francisco</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════ TRACK RECORD ════ -->
+  <div class="track-record">
+    <section>
+      <h2>Where We've Shipped</h2>
+      <p class="subtitle">Studios and companies we've contributed to</p>
+      <div class="logos">
+        <span class="logo-item">Double Fine Productions</span>
+        <span class="logo-item">Amazon Robotics</span>
+        <span class="logo-item">Wizards of the Coast</span>
+        <span class="logo-item">Turn 10 Studios</span>
+        <span class="logo-item">Hypixel Studios</span>
+        <span class="logo-item">Unity Technologies</span>
+        <span class="logo-item">Arachnid Games</span>
+        <span class="logo-item">8ninths</span>
+        <span class="logo-item">KIXEYE</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- ════ CONTACT ════ -->
+  <div class="contact-section" id="contact">
+    <section>
+      <h2>Let's Talk</h2>
+      <p class="subtitle">Ready to unlock flow in your creative pipeline?</p>
+      <p>Whether you have a specific friction point or want a full workflow audit, reach out and we'll find the path forward together.</p>
+      <a href="mailto:danielle@stovelorentzen.com" class="contact-email">danielle@stovelorentzen.com</a>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2026 Stove Lorentzen Digital. All rights reserved.
+  </footer>
+
+</body>
+</html>
