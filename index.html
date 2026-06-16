@@ -268,36 +268,39 @@
       background: #f5f5f5;
     }
 
-    .logos-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .logo-item {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.2rem 1rem;
+    .logo-cloud {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
+      gap: 2.5rem 3rem;
+      margin-top: 2.5rem;
+      padding: 1rem 0;
     }
 
-    .logo-item img {
-      max-height: 36px;
-      max-width: 100%;
+    .logo-cloud img {
       object-fit: contain;
       filter: grayscale(100%);
-      opacity: 0.7;
-      transition: filter 0.2s, opacity 0.2s;
+      opacity: 0.55;
+      transition: filter 0.25s, opacity 0.25s;
     }
 
-    .logo-item:hover img {
+    .logo-cloud img:hover {
       filter: grayscale(0%);
       opacity: 1;
     }
+
+    /* per-logo sizing for equal visual weight */
+    .logo-cloud img[alt="Double Fine Productions"] { height: 52px; }
+    .logo-cloud img[alt="Turn 10 Studios"]         { height: 48px; }
+    .logo-cloud img[alt="8ninths"]                 { height: 44px; }
+    .logo-cloud img[alt="Arachnid Games"]          { height: 40px; }
+    .logo-cloud img[alt="Hypixel Studios"]         { height: 36px; }
+    .logo-cloud img[alt="Wizards of the Coast"]    { height: 34px; }
+    .logo-cloud img[alt="Unity Technologies"]      { height: 32px; }
+    .logo-cloud img[alt="Amazon Robotics"]         { height: 30px; }
+    .logo-cloud img[alt="Attensi"]                 { height: 28px; }
+    .logo-cloud img[alt="KIXEYE"]                  { height: 24px; }
 
     /* ── Contact ── */
     .contact-section {
@@ -353,7 +356,6 @@
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: 1fr; }
       .pillars-grid { grid-template-columns: 1fr; }
-      .logos-grid { grid-template-columns: repeat(2, 1fr); }
       section { padding: 3.5rem 1.5rem; }
     }
   </style>
@@ -476,17 +478,17 @@
     <section>
       <h2>Where We've Shipped</h2>
       <p class="subtitle">Studios and companies we've contributed to</p>
-      <div class="logos-grid">
-        <div class="logo-item"><img src="img/logos/doublefine.png" alt="Double Fine Productions"></div>
-        <div class="logo-item"><img src="img/logos/amazon.png" alt="Amazon Robotics"></div>
-        <div class="logo-item"><img src="img/logos/wizards.png" alt="Wizards of the Coast"></div>
-        <div class="logo-item"><img src="img/logos/turn10.png" alt="Turn 10 Studios"></div>
-        <div class="logo-item"><img src="img/logos/attensi.png" alt="Attensi"></div>
-        <div class="logo-item"><img src="img/logos/hypixel.png" alt="Hypixel Studios"></div>
-        <div class="logo-item"><img src="img/logos/unity.png" alt="Unity Technologies"></div>
-        <div class="logo-item"><img src="img/logos/arachnid.png" alt="Arachnid Games"></div>
-        <div class="logo-item"><img src="img/logos/8ninths.png" alt="8ninths"></div>
-        <div class="logo-item"><img src="img/logos/kixeye.png" alt="KIXEYE"></div>
+      <div class="logo-cloud">
+        <img src="img/logos/doublefine.png" alt="Double Fine Productions">
+        <img src="img/logos/amazon.png" alt="Amazon Robotics">
+        <img src="img/logos/wizards.png" alt="Wizards of the Coast">
+        <img src="img/logos/turn10.png" alt="Turn 10 Studios">
+        <img src="img/logos/attensi.png" alt="Attensi">
+        <img src="img/logos/hypixel.png" alt="Hypixel Studios">
+        <img src="img/logos/unity.png" alt="Unity Technologies">
+        <img src="img/logos/arachnid.png" alt="Arachnid Games">
+        <img src="img/logos/8ninths.png" alt="8ninths">
+        <img src="img/logos/kixeye.png" alt="KIXEYE">
       </div>
     </section>
   </div>
